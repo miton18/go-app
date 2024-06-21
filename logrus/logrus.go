@@ -6,10 +6,8 @@ import (
 )
 
 func SetupLogger(logger *logrus.Logger) {
-	logger.SetFormatter(&logrus.TextFormatter{
-		ForceColors:      true,
-		DisableTimestamp: true,
-	})
+	f := &logrus.TextFormatter{ForceColors: true, DisableTimestamp: true}
+	logger.SetFormatter(f)
 
 	if app.IsDebugEnabled() {
 		logger.SetLevel(logrus.DebugLevel)
